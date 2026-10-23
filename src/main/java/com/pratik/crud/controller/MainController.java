@@ -28,9 +28,11 @@ public class MainController  {
 	@PostMapping(path= "/reg", consumes = "application/json", produces = "application/json")
 	public  String addNewUser (@RequestBody User user) 
 	{
-		User u=(User)user;
-//		u.setName(name);
-//		u.setSal(sal);
+		// Build a fresh entity and copy only client-settable fields so the
+		// client-supplied id is never honoured (prevents overwriting existing rows).
+		User u=new User();
+		u.setName(user.getName());
+		u.setSal(user.getSal());
 		System.out.println(u);
 		userRepo.save(u);
 		
