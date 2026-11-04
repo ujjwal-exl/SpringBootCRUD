@@ -35,7 +35,9 @@ public class User implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", sal=" + sal + "]";
+		// sal is personal data: never include it in the string form, which is
+		// written to stdout/logs by the controller.
+		return "User [id=" + id + ", name=" + name + "]";
 	}
 	 
 	 
