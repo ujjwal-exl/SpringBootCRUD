@@ -35,7 +35,8 @@ public class User implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", sal=" + sal + "]";
+		// Salary and name are personal data and must never be written to logs or stdout via toString().
+		return "User [id=" + id + "]";
 	}
 	 
 	 
